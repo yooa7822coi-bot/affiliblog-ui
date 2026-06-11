@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>広告掲載のご案内 | Buzz.com</title>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --ig:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4); --pink:#dd2a7b; --black:#010101; --bg:#f5f5f5; }
+    body { font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif; background:var(--bg); color:#333; font-size:14px; }
+    a { color:var(--pink); text-decoration:none; } a:hover { text-decoration:underline; }
+    header { background:var(--black); position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.4); }
+    .h-inner { max-width:1180px; margin:0 auto; padding:0 20px; height:58px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:22px; font-weight:900; background:var(--ig); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .h-nav { display:flex; gap:4px; }
+    .h-nav a { color:#aaa; font-size:12px; padding:6px 14px; border-radius:20px; transition:background .15s,color .15s; }
+    .h-nav a:hover { background:#1e1e1e; color:#fff; text-decoration:none; }
+    .h-back { background:rgba(221,42,123,.15); border:1px solid rgba(221,42,123,.4); color:#dd2a7b !important; }
+    .page-hero { background:var(--black); padding:64px 20px; text-align:center; position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:var(--ig); opacity:.09; }
+    .page-hero .badge { display:inline-block; background:rgba(221,42,123,.18); border:1px solid rgba(221,42,123,.45); color:#dd2a7b; font-size:11px; font-weight:800; padding:5px 16px; border-radius:20px; letter-spacing:.08em; margin-bottom:14px; position:relative; }
+    .page-hero h1 { font-size:32px; font-weight:900; color:#fff; position:relative; letter-spacing:-.5px; margin-bottom:10px; }
+    .page-hero .sub { font-size:14px; color:#888; position:relative; }
+    .page-wrap { max-width:900px; margin:40px auto; padding:0 16px 80px; }
+    /* 数字統計 */
+    .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px; }
+    .stat-card { background:#fff; border-radius:14px; padding:28px 20px; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+    .stat-card .num { font-size:34px; font-weight:900; background:var(--ig); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; display:block; line-height:1; margin-bottom:8px; }
+    .stat-card .lbl { font-size:12px; color:#888; }
+    /* カード */
+    .card { background:#fff; border-radius:14px; padding:36px; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:20px; }
+    .card h2 { font-size:18px; font-weight:800; color:#1a1a1a; margin-bottom:18px; padding-bottom:10px; border-bottom:2px solid; border-image:var(--ig) 1; display:flex; align-items:center; gap:8px; }
+    .card h2 .ic { width:24px; height:24px; border-radius:7px; background:var(--ig); display:inline-flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; }
+    .card p { font-size:14px; line-height:1.9; color:#444; margin-bottom:12px; }
+    .card p:last-child { margin-bottom:0; }
+    .card ul { list-style:none; margin-bottom:12px; }
+    .card ul li { font-size:14px; line-height:1.85; color:#444; padding:4px 0 4px 22px; position:relative; }
+    .card ul li::before { content:'✓'; position:absolute; left:0; color:var(--pink); font-weight:700; font-size:13px; }
+    /* プランカード */
+    .plan-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:4px; }
+    .plan { border:2px solid #eee; border-radius:12px; padding:24px 20px; text-align:center; transition:border-color .2s,box-shadow .2s; position:relative; }
+    .plan:hover { border-color:#dd2a7b; box-shadow:0 4px 20px rgba(221,42,123,.12); }
+    .plan.popular { border-color:#dd2a7b; }
+    .plan .popular-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--ig); color:#fff; font-size:10px; font-weight:800; padding:4px 14px; border-radius:20px; white-space:nowrap; letter-spacing:.06em; }
+    .plan h3 { font-size:15px; font-weight:800; margin-bottom:10px; color:#1a1a1a; }
+    .plan .price { font-size:26px; font-weight:900; background:var(--ig); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }
+    .plan .price-sub { font-size:11px; color:#888; margin-bottom:14px; }
+    .plan ul { text-align:left; list-style:none; }
+    .plan ul li { font-size:12px; color:#555; padding:4px 0 4px 18px; position:relative; border-bottom:1px solid #f5f5f5; }
+    .plan ul li::before { content:'·'; position:absolute; left:4px; color:var(--pink); font-size:18px; line-height:1; }
+    .plan ul li:last-child { border-bottom:none; }
+    /* フロー */
+    .flow { display:flex; gap:0; margin-top:4px; }
+    .flow-step { flex:1; text-align:center; position:relative; }
+    .flow-step::after { content:'→'; position:absolute; right:-12px; top:28px; font-size:20px; color:#ddd; }
+    .flow-step:last-child::after { display:none; }
+    .flow-step .num { width:52px; height:52px; border-radius:50%; background:var(--ig); color:#fff; font-size:18px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; }
+    .flow-step .title { font-size:13px; font-weight:700; color:#1a1a1a; margin-bottom:4px; }
+    .flow-step .desc { font-size:11px; color:#888; line-height:1.5; }
+    /* CTA */
+    .cta-card { background:var(--black); border-radius:16px; padding:44px 36px; text-align:center; position:relative; overflow:hidden; }
+    .cta-card::before { content:''; position:absolute; inset:0; background:var(--ig); opacity:.1; }
+    .cta-card h2 { font-size:22px; font-weight:900; color:#fff; margin-bottom:10px; position:relative; }
+    .cta-card p { font-size:14px; color:#888; margin-bottom:24px; position:relative; }
+    .cta-card .cta-btn { display:inline-block; background:var(--ig); color:#fff; font-size:14px; font-weight:800; padding:15px 44px; border-radius:30px; border:none; cursor:pointer; box-shadow:0 4px 24px rgba(221,42,123,.45); transition:transform .15s,box-shadow .15s; position:relative; text-decoration:none; }
+    .cta-card .cta-btn:hover { transform:translateY(-3px); box-shadow:0 8px 36px rgba(221,42,123,.6); }
+    @media(max-width:700px) { .plan-grid,.stats-row { grid-template-columns:1fr; } .flow { flex-direction:column; gap:16px; } .flow-step::after { display:none; } }
+    footer { background:var(--black); color:#555; padding:28px 20px; text-align:center; }
+    footer .f-logo { font-size:18px; font-weight:900; background:var(--ig); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:8px; }
+    footer p { font-size:11px; }
+    footer .f-links { display:flex; justify-content:center; flex-wrap:wrap; gap:16px; margin-bottom:14px; }
+    footer .f-links a { font-size:12px; color:#555; }
+    footer .f-links a:hover { color:#dd2a7b; text-decoration:none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="h-inner">
+    <a href="index.html" class="logo">Buzz.com</a>
+    <nav class="h-nav">
+      <a href="index.html" class="h-back">← トップに戻る</a>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="badge">📢 ADVERTISE</div>
+  <h1>広告掲載のご案内</h1>
+  <p class="sub">話題の商品・時事ネタに関心の高い読者へリーチしませんか？</p>
+</div>
+
+<div class="page-wrap">
+
+  <!-- 媒体数値 -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="num">1.2M+</span>
+      <span class="lbl">月間ページビュー</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">380K+</span>
+      <span class="lbl">月間ユニークユーザー</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">28.9K</span>
+      <span class="lbl">SNS総フォロワー</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="ic">👥</span>読者層について</h2>
+    <p>Buzz.comは「話題の商品・時事ネタ」に関心の高い20〜40代のアクティブユーザーが中心です。SNS経由の流入が多く、情報感度が高い層に効果的にリーチできます。</p>
+    <ul>
+      <li>メイン読者層：20代〜40代 / 男女比 約4:6</li>
+      <li>流入経路：Instagram・TikTok・Twitter（X）経由が60%以上</li>
+      <li>興味関心：トレンド商品・コスパ商品・エンタメ・テクノロジー</li>
+      <li>購買意欲：記事経由のECサイト遷移率が業界平均の1.8倍</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="ic">📦</span>広告メニュー・料金プラン</h2>
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>バナー広告</h3>
+        <div class="price">¥30,000</div>
+        <div class="price-sub">〜 / 月</div>
+        <ul>
+          <li>サイドバー・記事内</li>
+          <li>サイズ：300×250px</li>
+          <li>クリック課金も対応</li>
+          <li>掲載期間：1ヶ月〜</li>
+          <li>レポート：月次</li>
+        </ul>
+      </div>
+      <div class="plan popular">
+        <span class="popular-badge">🔥 人気No.1</span>
+        <h3>記事広告（PR記事）</h3>
+        <div class="price">¥80,000</div>
+        <div class="price-sub">〜 / 本</div>
+        <ul>
+          <li>編集部が執筆・制作</li>
+          <li>SEO最適化済み</li>
+          <li>SNS拡散サポート</li>
+          <li>永続掲載</li>
+          <li>効果レポート付き</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>タイアップ企画</h3>
+        <div class="price">要相談</div>
+        <div class="price-sub">&nbsp;</div>
+        <ul>
+          <li>SNS連動キャンペーン</li>
+          <li>動画・ショート制作</li>
+          <li>特集記事シリーズ</li>
+          <li>ランキング掲載</li>
+          <li>カスタム対応可</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:16px; font-size:12px; color:#888;">※上記は基本プランです。掲載期間・ページ・オプションにより料金が変動します。まずはお気軽にお問い合わせください。</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="ic">✅</span>掲載可能なジャンル</h2>
+    <ul>
+      <li>話題の商品・新発売アイテム（家電・美容・食品・ファッションなど）</li>
+      <li>アプリ・Webサービス・SaaSツール</li>
+      <li>エンタメ・映画・ゲーム・音楽</li>
+      <li>ライフスタイル・健康・フィットネス</li>
+      <li>金融・投資・節約サービス</li>
+      <li>教育・学習・スキルアップ</li>
+    </ul>
+    <p>以下のジャンルは原則お断りしています：アダルト・ギャンブル・詐欺的商法・薬事法違反・反社会的コンテンツ</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="ic">📋</span>お申し込みの流れ</h2>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="num">1</div>
+        <div class="title">お問い合わせ</div>
+        <div class="desc">フォームよりご希望内容をご送付ください</div>
+      </div>
+      <div class="flow-step">
+        <div class="num">2</div>
+        <div class="title">ヒアリング</div>
+        <div class="desc">目的・ターゲット・予算をメールで確認</div>
+      </div>
+      <div class="flow-step">
+        <div class="num">3</div>
+        <div class="title">お見積もり</div>
+        <div class="desc">プランご提案・お見積書の送付</div>
+      </div>
+      <div class="flow-step">
+        <div class="num">4</div>
+        <div class="title">制作・入稿</div>
+        <div class="desc">素材ご提供または編集部が制作</div>
+      </div>
+      <div class="flow-step">
+        <div class="num">5</div>
+        <div class="title">掲載開始</div>
+        <div class="desc">掲載確認後スタート・効果測定</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="ic">❓</span>よくある質問</h2>
+    <p><strong>Q. 最短どれくらいで掲載できますか？</strong><br>
+    A. バナー広告は最短3営業日、記事広告は内容確認・制作後に掲載となるため、お問い合わせから最短1〜2週間を目安としています。</p>
+    <p><strong>Q. 記事広告の内容は自分で書けますか？</strong><br>
+    A. 持ち込み原稿にも対応しています。ただし、当サイトの編集基準に基づく修正をお願いする場合があります。</p>
+    <p><strong>Q. 成果報酬型（CPA）は対応していますか？</strong><br>
+    A. 条件によってはご相談可能です。まずはお問い合わせください。</p>
+    <p><strong>Q. 媒体資料はありますか？</strong><br>
+    A. お問い合わせいただいた方に媒体資料（PDF）をお送りします。</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-card">
+    <h2>広告掲載のお申し込み・ご相談</h2>
+    <p>まずはお気軽にお問い合わせください。担当者が2営業日以内にご返信します。</p>
+    <a href="contact.html" class="cta-btn">お問い合わせフォームへ →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-logo">Buzz.com</div>
+  <div class="f-links">
+    <a href="index.html">トップ</a>
+    <a href="privacy-policy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+    <a href="tokushoho.html">特定商取引法</a>
+    <a href="advertise.html">広告掲載</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2026 Buzz.com All Rights Reserved.</p>
+</footer>
+</body>
+</html>
