@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3537366636618123"
+    crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="https://www.buzz-com.jp/" />
@@ -11,16 +13,16 @@
   <meta property="og:description"  content="話題の商品・時事ネタ・SNSバズをいち早くチェック。Z世代トレンド・テクノロジー・グルメ・エンタメを毎日更新。"/>
   <meta property="og:type"         content="website"/>
   <meta property="og:url"          content="https://www.buzz-com.jp/"/>
-  <meta property="og:image"        content="https://www.apple.com/newsroom/images/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/article/Apple-iOS-27-Siri-AI-onscreen-awareness-260608_inline.jpg.large.jpg"/>
-  <meta property="og:image:width"  content="800"/>
-  <meta property="og:image:height" content="600"/>
+  <meta property="og:image"        content="https://www.buzz-com.jp/images/ogp-top.png"/>
+  <meta property="og:image:width"  content="1200"/>
+  <meta property="og:image:height" content="630"/>
   <meta property="og:locale"       content="ja_JP"/>
   <meta property="og:site_name"    content="Buzz.com"/>
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image"/>
   <meta name="twitter:title"       content="話題の商品・SNSバズを最速でキャッチ | Buzz.com"/>
   <meta name="twitter:description" content="話題の商品・時事ネタ・SNSバズをいち早くチェック。Z世代トレンド・テクノロジー・グルメ・エンタメを毎日更新。"/>
-  <meta name="twitter:image"       content="https://www.apple.com/newsroom/images/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/article/Apple-iOS-27-Siri-AI-onscreen-awareness-260608_inline.jpg.large.jpg"/>
+  <meta name="twitter:image"       content="https://www.buzz-com.jp/images/ogp-top.png"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -133,17 +135,7 @@
       gap: 12px;
     }
 
-    .header-right .follow-btn {
-      background: var(--ig-grad);
-      border: none;
-      color: #fff;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-    }
+
 
     /* ─── CATEGORY NAV ─── */
     .cat-nav {
@@ -628,27 +620,6 @@
       color: #DD2A7B;
     }
 
-    /* SNS widget */
-    .sns-widget { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-
-    .sns-btn {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: 10px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .sns-btn.ig { background: var(--ig-grad); }
-    .sns-btn.tt { background: var(--tt-black); border: 1px solid #333; }
-    .sns-btn.tt .tt-logo { color: var(--tt-cyan); }
-
-    .sns-btn .sns-count { margin-left: auto; font-size: 11px; opacity: 0.8; }
-
     /* ─── FOOTER ─── */
     footer {
       background: var(--tt-black);
@@ -737,7 +708,7 @@
     /* タブレット〜スマホ：ハンバーガーメニュー表示 */
     @media (max-width: 768px) {
       .hamburger { display: flex; }
-      .header-right .follow-btn { display: none; }
+
       .search-wrap { max-width: 160px; }
 
       /* カテゴリナビをデフォルト非表示 */
@@ -837,36 +808,12 @@
       margin-bottom: 30px;
     }
 
-    .fv-stats {
-      display: flex;
-      gap: 30px;
-      margin-bottom: 36px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .fv-stat .num {
-      display: block;
-      font-size: 28px;
-      font-weight: 900;
-      background: var(--ig-grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-    }
-
-    .fv-stat .lbl {
-      display: block;
-      font-size: 11px;
-      color: #555;
-      margin-top: 5px;
-      letter-spacing: 0.04em;
-    }
-
     .fv-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
     .fv-btn-main {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
       background: var(--ig-grad);
       color: #fff;
       border: none;
@@ -885,23 +832,6 @@
       box-shadow: 0 8px 36px rgba(221,42,123,0.62);
     }
 
-    .fv-btn-sub {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.25);
-      padding: 13px 30px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: border-color 0.15s, background 0.15s;
-    }
-
-    .fv-btn-sub:hover {
-      border-color: rgba(255,255,255,0.65);
-      background: rgba(255,255,255,0.07);
-    }
-
     @media (max-width: 900px) {
       .first-view { height: 440px; }
       .fv-title { font-size: 38px; }
@@ -913,26 +843,47 @@
       .fv-inner { padding: 0 20px; align-items: flex-start; }
       .fv-content { max-width: 100%; }
       .fv-desc { font-size: 13px; margin-bottom: 22px; }
-      .fv-stats { gap: 20px; margin-bottom: 24px; padding-bottom: 20px; }
-      .fv-stat .num { font-size: 22px; }
+
     }
 
     @media (max-width: 480px) {
       .first-view { min-height: 320px; padding: 44px 0 36px; }
       .fv-title { font-size: 24px; }
       .fv-eyebrow { font-size: 11px; padding: 6px 14px; margin-bottom: 16px; }
-      .fv-stats { display: none; }
       .fv-desc { display: none; }
       .fv-btns { gap: 10px; }
-      .fv-btn-main, .fv-btn-sub { padding: 12px 22px; font-size: 12px; }
+      .fv-btn-main { padding: 12px 22px; font-size: 12px; }
     }
 
     @media (max-width: 360px) {
       .first-view { min-height: 280px; }
       .fv-title { font-size: 20px; }
       .fv-btns { flex-direction: column; }
-      .fv-btn-main, .fv-btn-sub { width: 100%; text-align: center; justify-content: center; }
+      .fv-btn-main { width: 100%; text-align: center; justify-content: center; }
     }
+
+    /* ── 検索ハイライト / バナー / 空状態 ── */
+    mark.s-hl { background: #fef08a; color: #1e293b; border-radius: 2px; padding: 0 1px; font-style: normal; }
+    #search-banner {
+      display: none;
+      margin-bottom: 14px;
+      padding: 10px 16px;
+      background: linear-gradient(90deg, #f58529, #dd2a7b);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    #search-empty {
+      display: none;
+      text-align: center;
+      padding: 48px 20px;
+      color: #888;
+    }
+    #search-empty .se-icon { font-size: 44px; margin-bottom: 14px; }
+    #search-empty .se-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #555; }
+    #search-empty .se-sub { font-size: 13px; }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -964,7 +915,6 @@
       <span></span>
     </button>
     <div class="header-right">
-      <button class="follow-btn">フォローする</button>
     </div>
   </div>
 
@@ -1307,14 +1257,8 @@
         話題の商品・時事ネタ・バズったコンテンツを毎日更新。<br>
         SNSで広まる前にチェックしよう。
       </p>
-      <div class="fv-stats">
-        <div class="fv-stat"><span class="num">1.2M+</span><span class="lbl">月間読者数</span></div>
-        <div class="fv-stat"><span class="num">500+</span><span class="lbl">記事数</span></div>
-        <div class="fv-stat"><span class="num">28.9K</span><span class="lbl">SNSフォロワー</span></div>
-      </div>
       <div class="fv-btns">
-        <button class="fv-btn-main">記事を読む →</button>
-        <button class="fv-btn-sub">SNSをフォロー</button>
+        <a href="#sec-title-list" class="fv-btn-main">記事を読む →</a>
       </div>
     </div>
   </div>
@@ -1603,7 +1547,13 @@
     </a>
 
     <!-- GRID ARTICLES -->
-    <div class="section-title">
+    <div id="search-banner"></div>
+    <div id="search-empty">
+      <div class="se-icon">🔍</div>
+      <div class="se-title">記事が見つかりませんでした</div>
+      <div class="se-sub">別のキーワードで試してみてください</div>
+    </div>
+    <div id="sec-title-grid" class="section-title">
       <div class="grad-dot"></div>
       <h2>急上昇トレンド</h2>
       <div class="line"></div>
@@ -1689,7 +1639,7 @@
     </div>
 
         <!-- LIST ARTICLES -->
-    <div class="section-title">
+    <div id="sec-title-list" class="section-title">
       <div class="grad-dot"></div>
       <h2>新着記事</h2>
       <div class="line"></div>
@@ -1823,25 +1773,6 @@
       </div>
     </div>
 
-        <!-- SNS Follow -->
-    <div class="widget">
-      <div class="widget-head">
-        <div class="w-icon">📲</div>
-        SNSでもチェック
-      </div>
-      <div class="sns-widget">
-        <div class="sns-btn ig">
-          <span>📸</span>
-          <span>Instagramをフォロー</span>
-          <span class="sns-count">12.4K</span>
-        </div>
-        <div class="sns-btn tt">
-          <span class="tt-logo">♪</span>
-          <span>TikTokをフォロー</span>
-          <span class="sns-count">28.9K</span>
-        </div>
-      </div>
-    </div>
 
   </aside>
 </div>
@@ -1897,6 +1828,126 @@
       btn.setAttribute('aria-expanded', 'false');
     }
   });
+})();
+
+// ── 検索機能 ──
+(function() {
+  var input = document.querySelector('.search-wrap input');
+  var searchBtn = document.querySelector('.search-wrap button');
+  if (!input || !searchBtn) return;
+
+  // タイトル・抜粋の元HTMLを保存（ハイライト復元用）
+  var origMap = new Map();
+  document.querySelectorAll('.card-title, .list-title, .list-excerpt').forEach(function(el) {
+    origMap.set(el, el.innerHTML);
+  });
+
+  function restoreAll() {
+    origMap.forEach(function(html, el) { el.innerHTML = html; });
+  }
+
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function applyHighlight(el, re) {
+    var orig = origMap.get(el);
+    if (!orig) return;
+    el.innerHTML = orig.replace(re, function(m) {
+      return '<mark class="s-hl">' + m + '</mark>';
+    });
+  }
+
+  var banner   = document.getElementById('search-banner');
+  var emptyEl  = document.getElementById('search-empty');
+  var secGrid  = document.getElementById('sec-title-grid');
+  var secList  = document.getElementById('sec-title-list');
+  var gridWrap = document.querySelector('.article-grid');
+  var listWrap = document.querySelector('.article-list');
+  var pagination = document.querySelector('.pagination');
+
+  function doSearch() {
+    var q  = input.value.trim();
+    var ql = q.toLowerCase();
+
+    restoreAll();
+
+    // ── クリア時：全て元に戻す ──
+    if (!q) {
+      document.querySelectorAll('.article-card, .article-list-item').forEach(function(el) { el.style.display = ''; });
+      if (secGrid)    secGrid.style.display    = '';
+      if (secList)    secList.style.display    = '';
+      if (gridWrap)   gridWrap.style.display   = '';
+      if (listWrap)   listWrap.style.display   = '';
+      if (pagination) pagination.style.display = '';
+      banner.style.display  = 'none';
+      emptyEl.style.display = 'none';
+      return;
+    }
+
+    var re = new RegExp(escRe(q), 'gi');
+    var matchedHrefs = new Set();
+
+    // カード（急上昇トレンド）
+    var gridHits = 0;
+    document.querySelectorAll('.article-card').forEach(function(card) {
+      var titleEl = card.querySelector('.card-title');
+      var catEl   = card.querySelector('.card-cat-tag');
+      var text    = [(titleEl ? titleEl.textContent : ''), (catEl ? catEl.textContent : '')].join(' ').toLowerCase();
+      if (text.includes(ql)) {
+        card.style.display = '';
+        gridHits++;
+        matchedHrefs.add(card.getAttribute('href'));
+        if (titleEl) applyHighlight(titleEl, re);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // リスト（新着記事）
+    var listHits = 0;
+    document.querySelectorAll('.article-list-item').forEach(function(item) {
+      var titleEl   = item.querySelector('.list-title');
+      var excerptEl = item.querySelector('.list-excerpt');
+      var catEl     = item.querySelector('.list-cat');
+      var text      = [
+        titleEl   ? titleEl.textContent   : '',
+        excerptEl ? excerptEl.textContent : '',
+        catEl     ? catEl.textContent     : ''
+      ].join(' ').toLowerCase();
+      if (text.includes(ql)) {
+        item.style.display = '';
+        listHits++;
+        matchedHrefs.add(item.getAttribute('href'));
+        if (titleEl)   applyHighlight(titleEl, re);
+        if (excerptEl) applyHighlight(excerptEl, re);
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    // セクション見出し・ラッパーの表示制御
+    if (secGrid)  secGrid.style.display  = gridHits ? '' : 'none';
+    if (secList)  secList.style.display  = listHits ? '' : 'none';
+    if (pagination) pagination.style.display = 'none';
+
+    var total = matchedHrefs.size;
+
+    if (total === 0) {
+      if (gridWrap) gridWrap.style.display = 'none';
+      if (listWrap) listWrap.style.display = 'none';
+      banner.style.display  = 'none';
+      emptyEl.style.display = '';
+    } else {
+      if (gridWrap) gridWrap.style.display = '';
+      if (listWrap) listWrap.style.display = '';
+      emptyEl.style.display = 'none';
+      banner.style.display  = '';
+      banner.innerHTML = '🔍 「<strong>' + q + '</strong>」の検索結果：<strong>' + total + '件</strong>の記事が見つかりました';
+    }
+  }
+
+  input.addEventListener('input', doSearch);
+  searchBtn.addEventListener('click', function() { input.focus(); doSearch(); });
+  input.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); doSearch(); } });
 })();
 </script>
 </body>
