@@ -150,7 +150,7 @@
     /* ── レイアウト ── */
     .wrapper { max-width: 1160px; margin: 0 auto; padding: 32px 20px 60px; display: grid; grid-template-columns: 1fr 320px; gap: 32px; align-items: start; }
     main { min-width: 0; }
-    aside { position: sticky; top: 24px; }
+    aside { position: sticky; top: 76px; max-height: calc(100vh - 96px); overflow-y: auto; }
 
     /* ── ヒーロー ── */
     .hero {
@@ -560,6 +560,16 @@
       padding: 13px; border-radius: 8px; text-decoration: none;
     }
 
+    /* ── 関連記事 ── */
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .related-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .15s; text-decoration: none; color: inherit; display: block; }
+    .related-card:hover { transform: translateY(-3px); }
+    .related-card .rc-img { aspect-ratio: 16/9; background: linear-gradient(135deg, var(--lock-dark), var(--lock)); display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .related-card .rc-body { padding: 12px; }
+    .related-card .rc-cat { font-size: 10px; font-weight: 800; color: var(--lock); margin-bottom: 4px; }
+    .related-card .rc-title { font-size: 13px; font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
     /* ── フッター ── */
     footer {
       background: var(--lock-dark); color: rgba(255,255,255,.65);
@@ -630,9 +640,9 @@
 
 <!-- パンくず -->
 <nav class="breadcrumb" aria-label="パンくずリスト">
-  <a href="https://buzz.com">ホーム</a>
+  <a href="index.html">ホーム</a>
   <span>›</span>
-  <a href="https://buzz.com/lifestyle">ライフスタイル</a>
+  <a href="index.html">ライフスタイル</a>
   <span>›</span>
   スマホロッキングケース 厳選4選
 </nav>
@@ -1231,6 +1241,29 @@
       </div>
     </section>
 
+    <!-- 関連記事 -->
+    <div style="margin-top:36px;">
+      <h3 style="font-size:16px;font-weight:800;margin-bottom:14px;">📖 関連記事</h3>
+      <div class="related-grid">
+        <a href="large-tumbler.html" class="related-card">
+          <div class="rc-img">🥤</div>
+          <div class="rc-body"><div class="rc-cat">話題の商品</div><div class="rc-title">SNS話題の大容量タンブラーおすすめ5選｜STANLEY・KINTO他</div></div>
+        </a>
+        <a href="ios27-apple-intelligence.html" class="related-card">
+          <div class="rc-img">🍎</div>
+          <div class="rc-body"><div class="rc-cat">テクノロジー</div><div class="rc-title">iOS 27新機能まとめ｜WWDC 2026 Apple Intelligence完全解説</div></div>
+        </a>
+        <a href="hiyashi-gourmet.html" class="related-card">
+          <div class="rc-img">🍧</div>
+          <div class="rc-body"><div class="rc-cat">グルメ</div><div class="rc-title">【2026年夏】SNS話題の冷やしグルメ7選まとめ</div></div>
+        </a>
+        <a href="analog-game.html" class="related-card">
+          <div class="rc-img">🎲</div>
+          <div class="rc-body"><div class="rc-cat">エンタメ</div><div class="rc-title">【2026年】流行りのアナログゲームおすすめTOP10</div></div>
+        </a>
+      </div>
+    </div>
+
   </main>
 
   <!-- サイドバー -->
@@ -1293,10 +1326,12 @@
 <!-- フッター -->
 <footer>
   <div class="footer-links">
-    <a href="https://buzz.com/about">運営者情報</a>
-    <a href="https://buzz.com/privacy">プライバシーポリシー</a>
-    <a href="https://buzz.com/affiliate">アフィリエイト開示</a>
-    <a href="https://buzz.com/contact">お問い合わせ</a>
+    <a href="index.html">トップ</a>
+    <a href="privacy-policy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+    <a href="tokushoho.html">特定商取引法</a>
+    <a href="advertise.html">広告掲載</a>
+    <a href="contact.html">お問い合わせ</a>
   </div>
   <p>※本記事にはアフィリエイト広告が含まれています。<br>© 2026 Buzz.com All Rights Reserved.</p>
 </footer>
