@@ -285,6 +285,17 @@
     .rakuten-banner-wrap img{border-radius:6px;max-width:100%;height:auto;}
     .sb-rakuten-banner{text-align:center;padding:14px 12px;background:linear-gradient(135deg,#fff5f8,#ffe8ee);border:1px solid #f5c6d0;border-radius:var(--radius);margin-bottom:20px;}
     .sb-rakuten-banner .srb-label{font-size:11px;font-weight:700;color:#c62a78;margin-bottom:8px;letter-spacing:.05em;}
+
+    /* Stat Highlight Block */
+    .bianca-stat-block{background:linear-gradient(135deg,var(--bc-dark) 0%,#7a3218 50%,var(--bc-mid) 100%);border-radius:var(--radius);padding:32px 24px 28px;margin:28px 0;color:#fff;text-align:center;box-shadow:0 8px 32px rgba(93,46,26,.45);position:relative;overflow:hidden;}
+    .bianca-stat-block::before{content:'';position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:rgba(255,255,255,.05);border-radius:50%;}
+    .bianca-stat-block::after{content:'';position:absolute;bottom:-25px;left:-25px;width:100px;height:100px;background:rgba(255,255,255,.04);border-radius:50%;}
+    .bsb-kicker{font-size:11px;font-weight:800;letter-spacing:.14em;opacity:.72;margin-bottom:14px;position:relative;}
+    .bsb-lead{font-size:14.5px;line-height:1.9;margin-bottom:22px;opacity:.93;position:relative;}
+    .bsb-stat{display:inline-block;background:rgba(255,255,255,.13);border:2px solid rgba(200,160,80,.65);border-radius:14px;padding:20px 36px;margin-bottom:20px;position:relative;}
+    .bsb-num{display:block;font-size:clamp(36px,8vw,54px);font-weight:900;color:#ffe880;line-height:1.05;letter-spacing:.02em;}
+    .bsb-label{display:block;font-size:12px;font-weight:700;opacity:.85;margin-top:8px;letter-spacing:.08em;}
+    .bsb-sub{font-size:13.5px;opacity:.87;line-height:1.8;position:relative;}
   </style>
 </head>
 <body>
@@ -374,6 +385,17 @@
         <li><strong>ブライダルとの親和性</strong>——白はウェディングカラー。引き出物に選ばれる深い理由</li>
         <li><strong>NIKKEI DESIGN選出</strong>——ネーミングとブランド設計の完成度が業界でも高く評価</li>
       </ul>
+    </div>
+
+    <!-- 数字で見るビアンカ：強調ブロック -->
+    <div class="bianca-stat-block">
+      <p class="bsb-kicker">📍 2017年、新潟県阿賀野市で誕生</p>
+      <p class="bsb-lead">20種類以上の銘柄豚がひしめく新潟県で、後発ながら着実に頭角を現した——それが「純白のビアンカ」だ。<br>インパクトあるネーミングと、<strong style="color:#ffe880;">透き通るような純白の脂</strong>で消費者の心をつかみ、</p>
+      <div class="bsb-stat">
+        <span class="bsb-num">年間 1億円</span>
+        <span class="bsb-label">2025年 年間販売額を突破</span>
+      </div>
+      <p class="bsb-sub">新潟産ブランド豚肉の新たな顔として、いま最も注目を集めている。</p>
     </div>
 
     <h3 class="subsection-title">📰 テレビ放映 ＋ NIKKEI DESIGN 2026年5月号掲載——ダブル権威の証明</h3>
