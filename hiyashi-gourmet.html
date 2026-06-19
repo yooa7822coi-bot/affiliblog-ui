@@ -61,9 +61,11 @@
       --border:#ebebeb;--card:#fff;--max:1160px;
       --ice:#0096c7;--summer:#ff6b35;--muji:#8c6c4c;
     }
+    html,body{overflow-x:hidden;}
     body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.85;}
     a{color:var(--ice);text-decoration:none;}a:hover{text-decoration:underline;}
     img{max-width:100%;height:auto;display:block;border-radius:8px;}
+    .img-grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
     #progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#00b4d8,#ff6b35);z-index:9999;transition:width .1s linear;}
 
     header{background:var(--black);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.45);}
@@ -367,6 +369,10 @@
       .final-cta h3{font-size:17px;}
       /* ヒーロー */
       .hero-visual{min-height:200px;}
+      /* 記事ヘッダー幅を article-wrap に揃える */
+      .article-header{padding:0 14px;}
+      /* 2カラム画像グリッド → 1カラム */
+      .img-grid-2col{grid-template-columns:1fr;}
       /* その他 */
       .social-share{display:none;}
     }
@@ -586,7 +592,7 @@
     </div>
   </div>
   <!-- 無印良品 商品パッケージ画像（公式） -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">
+  <div class="img-grid-2col">
     <figure style="margin:0;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);">
       <img src="https://prcdn.freetls.fastly.net/release_image/987/1804/987-1804-863acab561ac57df35013e85ea4c9ffd-1827x915.png"
            alt="無印良品 冷やし茶漬けシリーズ・冷やし牛だしクッパ ラインアップ"

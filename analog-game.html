@@ -57,6 +57,7 @@
       --black:#010101; --bg:#f6f6f6; --text:#222; --muted:#777;
       --border:#ebebeb; --card:#fff; --max:1160px;
     }
+    html,body{overflow-x:hidden;}
     body { font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif; background:var(--bg); color:var(--text); font-size:15px; line-height:1.85; }
     a { color:var(--pink); text-decoration:none; } a:hover { text-decoration:underline; }
     img { max-width:100%; height:auto; display:block; border-radius:8px; }
@@ -325,6 +326,7 @@
       /* ヘッダー */
       .h-nav a:not(.h-home) { display:none; }
       /* 記事全体 */
+      .article-header { padding:0 14px; }
       .article-header h1 { font-size:19px; line-height:1.45; }
       .article-wrap { padding:0 14px 60px; }
       .breadcrumb { padding:10px 14px; }
