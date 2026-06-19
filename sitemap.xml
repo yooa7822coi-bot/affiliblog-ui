@@ -52,6 +52,13 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://www.buzz-com.jp/purin-ice.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- 固定ページ -->
   <url>
     <loc>https://www.buzz-com.jp/advertise.html</loc>
