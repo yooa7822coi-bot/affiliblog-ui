@@ -273,7 +273,9 @@
     .related-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     .related-card { background:var(--card); border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.06); transition:transform .15s; }
     .related-card:hover { transform:translateY(-3px); }
-    .related-card .rc-img { aspect-ratio:16/9; background:linear-gradient(135deg,#1a0030,#000d22); display:flex; align-items:center; justify-content:center; font-size:32px; }
+    .related-card .rc-img { aspect-ratio:16/9; overflow:hidden; }
+    .related-card .rc-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s; }
+    .related-card:hover .rc-img img { transform:scale(1.04); }
     .related-card .rc-body { padding:12px; }
     .related-card .rc-cat { font-size:10px; font-weight:800; color:var(--pink); margin-bottom:4px; }
     .related-card .rc-title { font-size:13px; font-weight:700; line-height:1.4; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
@@ -1070,19 +1072,19 @@
     <h3 style="font-size:16px;font-weight:800;margin-bottom:14px;">📖 関連記事</h3>
     <div class="related-grid">
       <a href="bianca-pork.html" class="related-card">
-        <div class="rc-img">🥩</div>
+        <div class="rc-img"><img src="images/bianka_OGP.jpg" alt="純白のビアンカ 新潟産ブランド豚" loading="lazy"></div>
         <div class="rc-body"><div class="rc-cat">グルメ</div><div class="rc-title">【2026年最新】純白のビアンカとは？TVで話題の新潟産ブランド豚肉の特徴・購入方法まとめ</div></div>
       </a>
       <a href="dubai-chocolate.html" class="related-card">
-        <div class="rc-img">🍫</div>
+        <div class="rc-img"><img src="images/dubai-choco-lindt.jpg" alt="ドバイチョコとは？おすすめ5選" loading="lazy"></div>
         <div class="rc-body"><div class="rc-cat">グルメ</div><div class="rc-title">【ドバイチョコとは？】おすすめ5選ランキング完全解説【2026年最新】</div></div>
       </a>
       <a href="hiyashi-gourmet.html" class="related-card">
-        <div class="rc-img">🍧</div>
+        <div class="rc-img"><img src="https://prcdn.freetls.fastly.net/release_image/56642/308/56642-308-737d741bfbac42636761d413cd6e8f1d-800x534.jpg" alt="冷やしグルメ2026年最新トレンド" loading="lazy"></div>
         <div class="rc-body"><div class="rc-cat">グルメ</div><div class="rc-title">【2026年夏】SNS話題の冷やしグルメ7選まとめ</div></div>
       </a>
       <a href="purin-ice.html" class="related-card">
-        <div class="rc-img">🍮</div>
+        <div class="rc-img"><img src="images/purin-ice-ogp.webp" alt="生プリンアイスSNS完売おすすめ3選" loading="lazy"></div>
         <div class="rc-body"><div class="rc-cat">グルメ</div><div class="rc-title">【2026年最新】生プリンアイスとは？SNSで完売続出の"とろける食感"完全解説＆お取り寄せ3選</div></div>
       </a>
     </div>
