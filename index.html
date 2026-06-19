@@ -2032,15 +2032,16 @@
 </script>
 
 <script>
-/* スマホでfirst-view SVGのキャラクターが画面外に切れる対策
-   viewBox="0 0 1400 520" + xMidYMid slice → 375px幅では x=395〜1005 しか見えず
-   キャラクター（x≈1072）が外れるため、モバイル時は右寄りのviewBoxに切り替える */
+/* スマホでfirst-view SVGのキャラクターが見切れる対策
+   キャラクターは x=957〜1350 に存在。375px幅+xMidYMid sliceでは
+   609px分しか見えないため、中心をx=1050に合わせたviewBox="700 0 700 520"を使う。
+   これで画面に映る原座標範囲が x=745〜1355 となりキャラクターが収まる。 */
 (function () {
   var fvSvg = document.querySelector('.first-view > svg');
   if (!fvSvg) return;
   function adjustFvViewBox() {
     fvSvg.setAttribute('viewBox',
-      window.innerWidth <= 600 ? '600 0 800 520' : '0 0 1400 520');
+      window.innerWidth <= 600 ? '700 0 700 520' : '0 0 1400 520');
   }
   adjustFvViewBox();
   window.addEventListener('resize', adjustFvViewBox);
