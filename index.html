@@ -2030,5 +2030,21 @@
   input.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); doSearch(); } });
 })();
 </script>
+
+<script>
+/* スマホでfirst-view SVGのキャラクターが画面外に切れる対策
+   viewBox="0 0 1400 520" + xMidYMid slice → 375px幅では x=395〜1005 しか見えず
+   キャラクター（x≈1072）が外れるため、モバイル時は右寄りのviewBoxに切り替える */
+(function () {
+  var fvSvg = document.querySelector('.first-view > svg');
+  if (!fvSvg) return;
+  function adjustFvViewBox() {
+    fvSvg.setAttribute('viewBox',
+      window.innerWidth <= 600 ? '600 0 800 520' : '0 0 1400 520');
+  }
+  adjustFvViewBox();
+  window.addEventListener('resize', adjustFvViewBox);
+})();
+</script>
 </body>
 </html>
