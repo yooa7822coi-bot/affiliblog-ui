@@ -310,18 +310,56 @@
       .mobile-sticky{display:flex;}
     }
     @media(max-width:600px){
-      .article-header h1{font-size:20px;}
-      .article-body h2{font-size:16px;}
+      /* ヘッダー */
+      .h-nav a:not(.h-home){display:none;}
+
+      /* 記事ヘッダー */
+      .article-header h1{font-size:19px;line-height:1.45;}
+      .article-wrap{padding:0 14px 60px;}
+
+      /* 本文見出し */
+      .article-body h2{font-size:15px;padding:11px 14px;}
+      .article-body h3{font-size:14px;}
+
+      /* ヒーロー */
+      .hero-text-overlay{padding:20px 14px;}
+      .hero-text-overlay h2{font-size:19px;}
+      .hero-visual{min-height:200px;}
+
+      /* TL;DR */
+      .tldr-box{padding:18px 16px;}
+      .tldr-box h2{font-size:15px;}
+
+      /* テーブル共通：横スクロール内で最小幅を圧縮 */
+      .compare-table{min-width:340px;font-size:12px;}
+      .compare-table td,.compare-table thead th{padding:9px 10px;}
+      .device-table{min-width:340px;font-size:11px;}
+      .device-table td,.device-table thead th{padding:8px 8px;}
+
+      /* グリッド */
       .feature-grid{grid-template-columns:1fr;}
       .siri-compare{grid-template-columns:1fr;}
+
+      /* ステップカード */
+      .use-card{flex-direction:column;gap:10px;}
+
+      /* FAQアコーディオン */
+      .faq-q{padding:14px 16px;font-size:13px;}
+      .faq-a{padding:0 14px 14px 14px;}
+
+      /* まとめCTA */
+      .final-cta{padding:22px 16px;}
+      .final-cta h3{font-size:17px;}
+      .final-cta .fcta-btn{padding:12px 24px;font-size:13px;}
+
+      /* その他 */
       .social-share{display:none;}
-      .compare-table{min-width:480px;}
-      /* 日本語オーバーレイ モバイル調整 */
       .img-jp-label{padding:8px 12px;}
       .img-jp-label .jp-text{font-size:11px;line-height:1.5;}
       .img-jp-label .jp-tag{font-size:9px;padding:1px 7px;margin-bottom:3px;}
-      /* Siri比較 モバイル時ラベル調整 */
       .sc-label{font-size:9px;}
+      .toc-box{padding:16px 16px;}
+      .breadcrumb{padding:10px 14px;}
     }
   </style>
 
