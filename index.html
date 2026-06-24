@@ -937,13 +937,11 @@
 
   <nav class="cat-nav" id="catNav">
     <div class="cat-nav-inner">
-      <span class="cat-pill active">🔥 すべて</span>
-      <span class="cat-pill">📦 話題の商品</span>
-      <span class="cat-pill">📰 時事ネタ</span>
-      <span class="cat-pill">🎮 エンタメ</span>
-      <span class="cat-pill">💻 テクノロジー</span>
-      <span class="cat-pill">🌿 ライフスタイル</span>
-      <span class="cat-pill">💰 お金・経済</span>
+      <span class="cat-pill active" data-cat="all">🔥 すべて</span>
+      <span class="cat-pill" data-cat="グルメ">🍽️ グルメ</span>
+      <span class="cat-pill" data-cat="ライフスタイル">🌿 ライフスタイル</span>
+      <span class="cat-pill" data-cat="テクノロジー">💻 テクノロジー</span>
+      <span class="cat-pill" data-cat="エンタメ">🎮 エンタメ</span>
     </div>
   </nav>
 </header>
@@ -1269,10 +1267,10 @@
   <div class="fv-inner">
     <div class="fv-content">
       <div class="fv-eyebrow">🔥 SNSで話題沸騰中</div>
-      <h1 class="fv-title">話題の商品・SNSバズを<br><span class="grad-text">最速でキャッチ</span></h1>
+      <h1 class="fv-title">今バズってるモノ、<br><span class="grad-text">ぜんぶここに。</span></h1>
       <p class="fv-desc">
-        話題の商品・時事ネタ・バズったコンテンツを毎日更新。<br>
-        SNSで広まる前にチェックしよう。
+        話題の商品もSNSトレンドも、3分で最速キャッチ。<br>
+        SNSで広まる前に、いちばん早く知れるメディア。
       </p>
       <div class="fv-btns">
         <a href="#sec-title-list" class="fv-btn-main">記事を読む →</a>
@@ -2073,6 +2071,112 @@
   input.addEventListener('input', doSearch);
   searchBtn.addEventListener('click', function() { input.focus(); doSearch(); });
   input.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); doSearch(); } });
+
+  // ── カテゴリ絞り込み（上部カテゴリーバー） ──
+  var pills = document.querySelectorAll('.cat-pill');
+  function setActivePill(el) { pills.forEach(function(p) { p.classList.remove('active'); }); if (el) el.classList.add('active'); }
+
+  function filterByCategory(cat, pillEl) {
+    setActivePill(pillEl);
+    input.value = '';   // 検索とカテゴリは排他
+    restoreAll();
+
+    // 「すべて」：全件表示に戻す
+    if (!cat || cat === 'all') {
+      document.querySelectorAll('.article-card, .article-list-item').forEach(function(el) { el.style.display = ''; });
+      if (secGrid)    secGrid.style.display    = '';
+      if (secList)    secList.style.display    = '';
+      if (gridWrap)   gridWrap.style.display   = '';
+      if (listWrap)   listWrap.style.display   = '';
+      if (pagination) pagination.style.display = '';
+      banner.style.display  = 'none';
+      emptyEl.style.display = 'none';
+      return;
+    }
+
+    var matchedHrefs = new Set();
+    var gridHits = 0, listHits = 0;
+
+    document.querySelectorAll('.article-card').forEach(function(card) {
+      var catEl = card.querySelector('.card-cat-tag');
+      if (catEl && catEl.textContent.indexOf(cat) !== -1) {
+        card.style.display = ''; gridHits++; matchedHrefs.add(card.getAttribute('href'));
+      } else { card.style.display = 'none'; }
+    });
+    document.querySelectorAll('.article-list-item').forEach(function(item) {
+      var catEl = item.querySelector('.list-cat');
+      if (catEl && catEl.textContent.indexOf(cat) !== -1) {
+        item.style.display = ''; listHits++; matchedHrefs.add(item.getAttribute('href'));
+      } else { item.style.display = 'none'; }
+    });
+
+    if (secGrid)    secGrid.style.display    = gridHits ? '' : 'none';
+    if (secList)    secList.style.display    = listHits ? '' : 'none';
+    if (pagination) pagination.style.display = 'none';
+
+    var total = matchedHrefs.size;
+    if (total === 0) {
+      if (gridWrap) gridWrap.style.display = 'none';
+      if (listWrap) listWrap.style.display = 'none';
+      banner.style.display  = 'none';
+      emptyEl.style.display = '';
+    } else {
+      if (gridWrap) gridWrap.style.display = '';
+      if (listWrap) listWrap.style.display = '';
+      emptyEl.style.display = 'none';
+      banner.style.display  = '';
+      banner.innerHTML = '🏷️ 「<strong>' + cat + '</strong>」の記事：<strong>' + total + '件</strong>';
+    }
+  }
+
+  pills.forEach(function(p) {
+    p.addEventListener('click', function() {
+      filterByCategory(p.getAttribute('data-cat'), p);
+      // モバイル：開いているハンバーガーメニューを閉じ、結果位置へスクロール
+      var nav = document.getElementById('catNav');
+      var ham = document.getElementById('hamburger');
+      var wasOpen = nav && nav.classList.contains('open');
+      if (nav) nav.classList.remove('open');
+      if (ham) { ham.classList.remove('open'); ham.setAttribute('aria-expanded', 'false'); }
+      if (wasOpen) {
+        var sec = document.getElementById('sec-title-grid');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // 検索したらカテゴリ選択は「すべて」に戻す
+  input.addEventListener('input', function() { if (input.value.trim() && pills[0]) setActivePill(pills[0]); });
+})();
+
+// ── TOP注目記事（hero-card）を常に最新記事へ自動同期 ──
+(function() {
+  var hero = document.querySelector('.hero-card');
+  if (!hero) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.article-grid .article-card'));
+  if (!cards.length) return;
+
+  function dateVal(card) {
+    var d = card.querySelector('.card-date');
+    return d ? d.textContent.replace(/\D/g, '') : '0'; // "2026.06.22" -> "20260622"
+  }
+  // 日付降順の先頭＝最新記事
+  var latest = cards.slice().sort(function(a, b) { return dateVal(b).localeCompare(dateVal(a)); })[0];
+  if (!latest) return;
+
+  var titleEl = latest.querySelector('.card-title');
+  var catEl   = latest.querySelector('.card-cat-tag');
+  var dateEl  = latest.querySelector('.card-date');
+
+  if (latest.getAttribute('href')) hero.setAttribute('href', latest.getAttribute('href'));
+  var hBadge = hero.querySelector('.hero-badge');
+  var hCat   = hero.querySelector('.hero-cat');
+  var hTitle = hero.querySelector('.hero-title');
+  var hDate  = hero.querySelector('.hero-date');
+  if (hBadge) hBadge.textContent = '🆕 最新記事';
+  if (hCat   && catEl)   hCat.textContent   = catEl.textContent.trim();
+  if (hTitle && titleEl) hTitle.textContent = titleEl.textContent.trim();
+  if (hDate  && dateEl)  hDate.textContent  = dateEl.textContent.trim();
 })();
 </script>
 
