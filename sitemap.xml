@@ -4,12 +4,19 @@
   <!-- トップページ -->
   <url>
     <loc>https://www.buzz-com.jp/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- 記事ページ -->
+  <url>
+    <loc>https://www.buzz-com.jp/gpt56.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://www.buzz-com.jp/monaki.html</loc>
     <lastmod>2026-06-26</lastmod>
