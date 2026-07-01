@@ -1871,16 +1871,6 @@
 
     </div>
 
-        <!-- PAGINATION -->
-    <div class="pagination">
-      <a href="#" class="active">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">›</a>
-    </div>
-
   </main>
 
   <!-- RIGHT SIDEBAR -->
@@ -1970,16 +1960,17 @@
     <div class="footer-col">
       <h4>カテゴリー</h4>
       <ul>
-        <li><a href="#">📦 話題の商品</a></li>
-        <li><a href="#">📰 時事ネタ</a></li>
-        <li><a href="#">🎮 エンタメ</a></li>
-        <li><a href="#">💻 テクノロジー</a></li>
-        <li><a href="#">🌿 ライフスタイル</a></li>
+        <li><a href="index.html" class="foot-cat" data-cat="all">🔥 すべて</a></li>
+        <li><a href="index.html" class="foot-cat" data-cat="グルメ">🍽️ グルメ</a></li>
+        <li><a href="index.html" class="foot-cat" data-cat="エンタメ">🎮 エンタメ</a></li>
+        <li><a href="index.html" class="foot-cat" data-cat="テクノロジー">💻 テクノロジー</a></li>
+        <li><a href="index.html" class="foot-cat" data-cat="ライフスタイル">🌿 ライフスタイル</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>サイト情報</h4>
       <ul>
+        <li><a href="about.html">運営者情報</a></li>
         <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
         <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
         <li><a href="disclaimer.html">免責事項</a></li>
@@ -2202,6 +2193,18 @@
         var sec = document.getElementById('sec-title-grid');
         if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    });
+  });
+
+  // フッターのカテゴリリンク → 上部と同じ絞り込みを実行し記事一覧へスクロール
+  document.querySelectorAll('.foot-cat').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var cat  = a.getAttribute('data-cat');
+      var pill = document.querySelector('.cat-pill[data-cat="' + cat + '"]');
+      filterByCategory(cat, pill);
+      var sec = document.getElementById('sec-title-grid');
+      if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 

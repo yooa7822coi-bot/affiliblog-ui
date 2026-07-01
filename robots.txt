@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /article-template.html
-
 Sitemap: https://www.buzz-com.jp/sitemap.xml
